@@ -17,11 +17,14 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        //Declaring Variables
         val addBtn = findViewById<Button>(R.id.addBtn)
         val nextBtn = findViewById<Button>(R.id.nextBtn)
         val exitBtn = findViewById<Button>(R.id.exitBtn)
         val songText = findViewById<TextView>(R.id.songText)
 
+
+        //Declaring arrays for names of artists
         val artistNames = arrayOf(
             "Kendrik lamar",
             "Justin bieber",
@@ -29,18 +32,27 @@ class MainActivity : AppCompatActivity() {
             "Tommy Richman"
 
         )
+        //Declaring arrays for song
         val Songs = arrayOf(
             "Not like us.",
             "Baby.",
             "Godzilla.",
             "Million Dollar Baby."
         )
+        //Declaring arrays for ratings
         val ratings = arrayOf(
             "1",
             "2",
             "3",
             "4",
             "5"
+        )
+        //Declaring arrays for comments
+        val comments = arrayOf(
+            "Rap",
+            "love",
+            "Rap",
+            "Hip pop"
         )
 
 
