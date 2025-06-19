@@ -26,21 +26,21 @@
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Song Title"
         android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/editTextArtist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Artist Name"
         android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/editTextRating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:hint="Rating (0-5)"
         android:inputType="numberDecimal"
         android:layout_marginBottom="16dp" />
@@ -56,19 +56,10 @@
         android:id="@+id/buttonDisplayPlaylist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#673AB7"
         android:text="Display Playlist"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/buttonAverageRating"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculate Average Rating"
-        android:backgroundTint="#FF9800"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonDetailedView"
@@ -81,9 +72,9 @@
         android:id="@+id/exitBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FF0000"
         android:text="Exit App"
-        android:backgroundTint="#FF5722"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
