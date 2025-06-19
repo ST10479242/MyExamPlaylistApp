@@ -30,7 +30,7 @@
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/nxtBtn"
+            android:id="@+id/nextBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -38,7 +38,7 @@
             android:textColor="#FFFFFF" />
 
         <Button
-            android:id="@+id/extBtn"
+            android:id="@+id/exitBtn"
             android:layout_width="228dp"
             android:layout_height="wrap_content"
             android:text="Exit"

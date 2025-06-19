@@ -11,11 +11,10 @@ class DetailedViewScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_detailed_view_screen)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        intent.getStringArrayExtra("songs")
+        intent.getStringArrayExtra("Rating")
+        intent.getStringArrayExtra("artistName")
 
     }
 }
