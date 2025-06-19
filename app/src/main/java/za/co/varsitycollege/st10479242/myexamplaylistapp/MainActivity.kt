@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToDetailedView() {
-        (Intent(this, DetailedViewScreen::class.java))
+        val intent = Intent(this, DetailedViewScreen::class.java)
 
         // Convert playlist array to string array using loops
         val playlistData = Array<String?>(MAX_SONGS) { null }

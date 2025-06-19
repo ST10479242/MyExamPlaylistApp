@@ -1,6 +1,7 @@
 package za.co.varsitycollege.st10479242.myexamplaylistapp
 //ST10479242
 //Aneeq Harris
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -14,6 +15,7 @@ class DetailedViewScreen : AppCompatActivity() {
     private lateinit var backBtn: Button
     private lateinit var buttonAverageRating: Button
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed_view_screen)
@@ -35,13 +37,13 @@ class DetailedViewScreen : AppCompatActivity() {
         val playlistData = intent.getStringArrayListExtra("playlist_data")
 
         if (playlistData != null && playlistData.isNotEmpty()) {
-            displayPlaylistDetails(playlistData)
+            displayPlaylistDetails()
         } else {
             textViewPlaylistDetails.text = "No songs in playlist yet."
         }
     }
 
-    private fun displayPlaylistDetails(playlistData: java.util.ArrayList<String>) {
+    private fun displayPlaylistDetails() {
         TODO("Not yet implemented")
     }
 
@@ -52,20 +54,6 @@ class DetailedViewScreen : AppCompatActivity() {
             Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT)
                 .show()
             return
-        }
-
-        fun displayPlaylistDetails(playlistData: ArrayList<String>) {
-            val detailsBuilder = StringBuilder()
-            detailsBuilder.append("Playlist Details:\n\n")
-
-            // Use traditional for loop with array-like access
-            for (i in 0 until playlistData.size) {
-                detailsBuilder.append("${i + 1}. ${playlistData[i]}\n\n")
-            }
-
-            detailsBuilder.append("Total Songs: ${playlistData.size}")
-
-            textViewPlaylistDetails.text = detailsBuilder.toString()
         }
 
         fun navigateToMainScreen() {
