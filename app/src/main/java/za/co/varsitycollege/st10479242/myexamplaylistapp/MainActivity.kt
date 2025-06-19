@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -58,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
 
         addBtn.setOnClickListener {
+            Toast.makeText(this, "Song added to playlist", Toast.LENGTH_SHORT).show()
         }
 
         nextBtn.setOnClickListener {
