@@ -17,14 +17,14 @@
 ![Screenshot 2025-06-19 125339](https://github.com/user-attachments/assets/58a73f2f-1038-4358-a76a-3b22661541ee)
 ![Screenshot 2025-06-19 125355](https://github.com/user-attachments/assets/ebf0a098-1988-4e46-aba7-cfd4e2a198e3)
 
-App running in emulator
+##App running in emulator
 ![Screenshot 2025-06-19 133003](https://github.com/user-attachments/assets/8bdc21e5-acc2-4d03-a753-b9be58578dad)
 
-Adding songs to playlist
+##Adding songs to playlist
 ![Screenshot 2025-06-19 133043](https://github.com/user-attachments/assets/4b8799c4-3b17-4334-b569-b3b88e6073a2)
 
-Playlist Display
+##Playlist Display
 ![Screenshot 2025-06-19 133100](https://github.com/user-attachments/assets/218383b8-e9e2-410e-94e4-869b4df503cd)
 
-Average of song score
+##Average of song score
 ![Screenshot 2025-06-19 133108](https://github.com/user-attachments/assets/e49946c9-3092-4855-8cfb-1099547ad0f8)
