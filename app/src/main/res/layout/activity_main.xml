@@ -8,48 +8,62 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Music App"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginBottom="32dp" />
+        android:layout_marginBottom="32dp"
+        android:background="#268A97"
+        android:padding="8dp"
+        android:text="My Music App"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#298E9B"
+        android:padding="4dp"
         android:text="Add Song to Playlist"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:hint="Song Title"
+        android:background="#CCFFFFFF"
+        android:padding="12dp"
         android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/editTextArtist"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:hint="Artist Name"
+        android:background="#CCFFFFFF"
+        android:padding="12dp"
         android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/editTextRating"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:hint="Rating (0-5)"
         android:inputType="numberDecimal"
+        android:background="#CCFFFFFF"
+        android:padding="12dp"
         android:layout_marginBottom="16dp" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/buttonAddSong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#673AB7"
         android:text="Add Song to Playlist"
-        android:layout_marginBottom="16dp" />
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/buttonDisplayPlaylist"
@@ -61,18 +75,29 @@
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/buttonDetailedView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View Detailed Playlist"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/exitButton"
+        android:id="@+id/buttonAverageRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#FF0000"
+        android:backgroundTint="#673AB7"
+        android:text="Calculate Average Rating"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/buttonDetailedView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#673AB7"
+        android:text="View Detailed Playlist"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FF2222"
         android:text="Exit App"
         android:textColor="#FFFFFF" />
 

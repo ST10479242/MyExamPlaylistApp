@@ -1,65 +1,58 @@
 package za.co.varsitycollege.st10479242.myexamplaylistapp
 //ST10479242
 //Aneeq Harris
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class DetailedViewScreen : AppCompatActivity() {
+class DetailedViewActivity : AppCompatActivity() {
 
     private lateinit var textViewPlaylistDetails: TextView
-    private lateinit var backBtn: Button
-    private lateinit var buttonAverageRating: Button
+    private lateinit var buttonBackToMain: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed_view_screen)
 
         textViewPlaylistDetails = findViewById(R.id.textViewPlaylistDetails)
-        backBtn = findViewById(R.id.backBtn)
+        buttonBackToMain = findViewById(R.id.buttonBackToMain)
 
-        // Set up average rating button
-        buttonAverageRating.setOnClickListener {
-            calculateAndDisplayAverageRating()
-        }
         // Set up back to main button
-        backBtn.setOnClickListener {
-            finish()
+        buttonBackToMain.setOnClickListener {
+            navigateToMainScreen()
         }
-
 
         // Get playlist data from intent
         val playlistData = intent.getStringArrayListExtra("playlist_data")
 
         if (playlistData != null && playlistData.isNotEmpty()) {
-            displayPlaylistDetails()
+            displayPlaylistDetails(playlistData)
         } else {
             textViewPlaylistDetails.text = "No songs in playlist yet."
         }
     }
 
-    private fun displayPlaylistDetails() {
-        TODO("Not yet implemented")
+    private fun displayPlaylistDetails(playlistData: ArrayList<String>) {
+        val detailsBuilder = StringBuilder()
+        detailsBuilder.append("Playlist Details:\n\n")
+
+        // Use traditional for loop with array-like access
+        for (i in 0 until playlistData.size) {
+            detailsBuilder.append("${i + 1}. ${playlistData[i]}\n\n")
+        }
+
+        detailsBuilder.append("Total Songs: ${playlistData.size}")
+
+        textViewPlaylistDetails.text = detailsBuilder.toString()
     }
 
-
-    private fun calculateAndDisplayAverageRating() {
-        val currentSongCount = null
-        if (currentSongCount == 0) {
-            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT)
-                .show()
-            return
-        }
-
-        fun navigateToMainScreen() {
-            val intent = Intent(this, MainActivity::class.java)
-            backBtn.setOnClickListener {
-                finish()
-            }
-        }
+    private fun navigateToMainScreen() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        startActivity(intent)
+        finish() // Close current activity
     }
 }

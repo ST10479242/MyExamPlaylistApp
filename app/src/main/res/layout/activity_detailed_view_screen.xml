@@ -10,15 +10,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="32dp"
-        android:text="Detailed View Screen"
+        android:background="#259DAD"
+        android:padding="8dp"
+        android:text="Detailed View"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <ScrollView
-        android:id="@+id/PlaylistDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="#2694A2"
+        android:padding="12dp">
 
         <TextView
             android:id="@+id/textViewPlaylistDetails"
@@ -26,21 +30,13 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="4dp"
             android:text="Loading playlist details..."
+            android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
     </ScrollView>
 
     <Button
-        android:id="@+id/buttonAverageRating"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#673AB7"
-        android:text="Calculate Average Rating"
-        android:textColor="#FFFFFF" />
-
-    <Button
-        android:id="@+id/backBtn"
+        android:id="@+id/buttonBackToMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

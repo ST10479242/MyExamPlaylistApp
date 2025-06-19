@@ -2,7 +2,6 @@ package za.co.varsitycollege.st10479242.myexamplaylistapp
 //ST10479242
 //Aneeq Harris
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonDetailedView: Button
     private lateinit var buttonExit: Button
     private lateinit var buttonDisplayPlaylist: Button
+    private lateinit var buttonAverageRating: Button
 
     companion object {
         const val MAX_SONGS = 5
@@ -37,10 +37,11 @@ class MainActivity : AppCompatActivity() {
         editTextTitle = findViewById(R.id.editTextTitle)
         editTextArtist = findViewById(R.id.editTextArtist)
         editTextRating = findViewById(R.id.editTextRating)
-        buttonAddSong = findViewById(R.id.addButton)
+        buttonAddSong = findViewById(R.id.buttonAddSong)
         buttonDetailedView = findViewById(R.id.buttonDetailedView)
-        buttonExit = findViewById(R.id.exitButton)
+        buttonExit = findViewById(R.id.buttonExit)
         buttonDisplayPlaylist = findViewById(R.id.buttonDisplayPlaylist)
+        buttonAverageRating = findViewById(R.id.buttonAverageRating)
 
         // Set up add song button
         buttonAddSong.setOnClickListener {
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
             displayPlaylistUsingLoop()
         }
 
+        // Set up average rating button
+        buttonAverageRating.setOnClickListener {
+            calculateAndDisplayAverageRating()
+        }
+
         // Set up exit button
         buttonExit.setOnClickListener {
             exitApp()
@@ -66,11 +72,7 @@ class MainActivity : AppCompatActivity() {
     private fun addSongToPlaylist() {
         // Check if playlist is full using loop
         if (currentSongCount >= MAX_SONGS) {
-            Toast.makeText(
-                this,
-                "Playlist is full! Maximum $MAX_SONGS songs allowed.",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this, "Playlist is full! Maximum $MAX_SONGS songs allowed.", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -111,11 +113,7 @@ class MainActivity : AppCompatActivity() {
                 editTextArtist.setText("")
                 editTextRating.setText("")
 
-                Toast.makeText(
-                    this,
-                    "Song added! ($currentSongCount/$MAX_SONGS songs)",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this, "Song added! ($currentSongCount/$MAX_SONGS songs)", Toast.LENGTH_SHORT).show()
             }
 
         } catch (e: NumberFormatException) {
@@ -124,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToDetailedView() {
-        val intent = Intent(this, DetailedViewScreen::class.java)
+        val intent = Intent(this, DetailedViewActivity::class.java)
 
         // Convert playlist array to string array using loops
         val playlistData = Array<String?>(MAX_SONGS) { null }
@@ -153,8 +151,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayPlaylistUsingLoop() {
         if (currentSongCount == 0) {
-            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -186,7 +183,6 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    @SuppressLint("DefaultLocale")
     private fun calculateAndDisplayAverageRating() {
         if (currentSongCount == 0) {
             Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT).show()
