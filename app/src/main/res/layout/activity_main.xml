@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="#CC000000">
+
+        <TextView
+            android:id="@+id/songText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add to playlist"
+            android:layout_marginBottom="10dp"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/nxtBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Next"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/extBtn"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</FrameLayout>
