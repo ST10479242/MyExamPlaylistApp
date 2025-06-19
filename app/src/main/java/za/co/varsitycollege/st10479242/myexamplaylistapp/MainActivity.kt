@@ -2,6 +2,7 @@ package za.co.varsitycollege.st10479242.myexamplaylistapp
 //ST10479242
 //Aneeq Harris
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -36,9 +37,9 @@ class MainActivity : AppCompatActivity() {
         editTextTitle = findViewById(R.id.editTextTitle)
         editTextArtist = findViewById(R.id.editTextArtist)
         editTextRating = findViewById(R.id.editTextRating)
-        buttonAddSong = findViewById(R.id.addBtn)
+        buttonAddSong = findViewById(R.id.addButton)
         buttonDetailedView = findViewById(R.id.buttonDetailedView)
-        buttonExit = findViewById(R.id.exitBtn)
+        buttonExit = findViewById(R.id.exitButton)
         buttonDisplayPlaylist = findViewById(R.id.buttonDisplayPlaylist)
 
         // Set up add song button
@@ -65,7 +66,11 @@ class MainActivity : AppCompatActivity() {
     private fun addSongToPlaylist() {
         // Check if playlist is full using loop
         if (currentSongCount >= MAX_SONGS) {
-            Toast.makeText(this, "Playlist is full! Maximum $MAX_SONGS songs allowed.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Playlist is full! Maximum $MAX_SONGS songs allowed.",
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -106,11 +111,15 @@ class MainActivity : AppCompatActivity() {
                 editTextArtist.setText("")
                 editTextRating.setText("")
 
-                Toast.makeText(this, "Song added to playlist! ($currentSongCount/$MAX_SONGS songs)", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Song added! ($currentSongCount/$MAX_SONGS songs)",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Please enter a rating number", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter a valid rating number", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -144,7 +153,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayPlaylistUsingLoop() {
         if (currentSongCount == 0) {
-            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -176,4 +186,53 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    @SuppressLint("DefaultLocale")
+    private fun calculateAndDisplayAverageRating() {
+        if (currentSongCount == 0) {
+            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Calculate average rating using loops
+        var totalRating = 0.0
+        var songCount = 0
+
+        // Loop through array to sum all ratings
+        for (i in 0 until MAX_SONGS) {
+            if (playlist[i] != null) {
+                totalRating += playlist[i]!!.rating
+                songCount++
+            }
+        }
+
+        val averageRating = totalRating / songCount
+
+        // Build detailed rating information using loops
+        val ratingBuilder = StringBuilder()
+        ratingBuilder.append("Rating Analysis:\n\n")
+
+        var displayCount = 1
+        // Loop to show individual ratings
+        for (i in 0 until MAX_SONGS) {
+            if (playlist[i] != null) {
+                val song = playlist[i]!!
+                ratingBuilder.append("$displayCount. ${song.title}: ${song.rating}/5\n")
+                displayCount++
+            }
+        }
+
+        ratingBuilder.append("\n")
+        ratingBuilder.append("Total Songs: $songCount\n")
+        ratingBuilder.append("Sum of Ratings: $totalRating\n")
+        ratingBuilder.append("Average Rating: ${String.format("%.2f", averageRating)}/5")
+
+        // Display average rating in a dialog
+        AlertDialog.Builder(this)
+            .setTitle("Average Song Rating")
+            .setMessage(ratingBuilder.toString())
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 }
