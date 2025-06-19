@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity<> : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     // Using arrays instead of ArrayList
     private val playlist = Array<Song?>(MAX_SONGS) { null }
@@ -106,11 +106,11 @@ class MainActivity<> : AppCompatActivity() {
                 editTextArtist.setText("")
                 editTextRating.setText("")
 
-                Toast.makeText(this, "Song added! ($currentSongCount/$MAX_SONGS songs)", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Song added to playlist! ($currentSongCount/$MAX_SONGS songs)", Toast.LENGTH_SHORT).show()
             }
 
         } catch (e: NumberFormatException) {
-            Toast.makeText(this, "Please enter a valid rating number", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please enter a rating number", Toast.LENGTH_SHORT).show()
         }
     }
 

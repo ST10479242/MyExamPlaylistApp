@@ -4,13 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class DetailedViewScreen : AppCompatActivity() {
 
     private lateinit var textViewPlaylistDetails: TextView
     private lateinit var backBtn: Button
-    private lateinit var buttonAverageRating : Button
+    private lateinit var buttonAverageRating: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +23,7 @@ class DetailedViewScreen : AppCompatActivity() {
         // Set up average rating button
         buttonAverageRating.setOnClickListener {
             calculateAndDisplayAverageRating()
+
         }
 
         // Set up back to main button
@@ -39,28 +41,41 @@ class DetailedViewScreen : AppCompatActivity() {
         }
     }
 
-    private fun calculateAndDisplayAverageRating() {
+    private fun navigateToMainScreen() {
         TODO("Not yet implemented")
     }
 
-    private fun displayPlaylistDetails(playlistData: ArrayList<String>) {
-        val detailsBuilder = StringBuilder()
-        detailsBuilder.append("Playlist Details:\n\n")
-
-        // Use traditional for loop with array-like access
-        for (i in 0 until playlistData.size) {
-            detailsBuilder.append("${i + 1}. ${playlistData[i]}\n\n")
-        }
-
-        detailsBuilder.append("Total Songs: ${playlistData.size}")
-
-        textViewPlaylistDetails.text = detailsBuilder.toString()
+    private fun displayPlaylistDetails(playlistData: java.util.ArrayList<String>) {
+        TODO("Not yet implemented")
     }
 
-    private fun navigateToMainScreen() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        startActivity(intent)
-        finish() // Close current activity
+    private fun calculateAndDisplayAverageRating() {
+        val currentSongCount = null
+        if (currentSongCount == 0) {
+            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT)
+                .show()
+            return
+        }
+
+        fun displayPlaylistDetails(playlistData: ArrayList<String>) {
+            val detailsBuilder = StringBuilder()
+            detailsBuilder.append("Playlist Details:\n\n")
+
+            // Use traditional for loop with array-like access
+            for (i in 0 until playlistData.size) {
+                detailsBuilder.append("${i + 1}. ${playlistData[i]}\n\n")
+            }
+
+            detailsBuilder.append("Total Songs: ${playlistData.size}")
+
+            textViewPlaylistDetails.text = detailsBuilder.toString()
+        }
+
+        fun navigateToMainScreen() {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+            finish() // Close current activity
+        }
     }
 }
