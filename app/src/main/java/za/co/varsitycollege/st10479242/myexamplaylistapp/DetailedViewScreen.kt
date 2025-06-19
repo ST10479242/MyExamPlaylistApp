@@ -1,5 +1,6 @@
 package za.co.varsitycollege.st10479242.myexamplaylistapp
-
+//ST10479242
+//Aneeq Harris
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -23,13 +24,12 @@ class DetailedViewScreen : AppCompatActivity() {
         // Set up average rating button
         buttonAverageRating.setOnClickListener {
             calculateAndDisplayAverageRating()
-
         }
-
         // Set up back to main button
         backBtn.setOnClickListener {
-            navigateToMainScreen()
+            finish()
         }
+
 
         // Get playlist data from intent
         val playlistData = intent.getStringArrayListExtra("playlist_data")
@@ -41,13 +41,10 @@ class DetailedViewScreen : AppCompatActivity() {
         }
     }
 
-    private fun navigateToMainScreen() {
-        TODO("Not yet implemented")
-    }
-
     private fun displayPlaylistDetails(playlistData: java.util.ArrayList<String>) {
         TODO("Not yet implemented")
     }
+
 
     private fun calculateAndDisplayAverageRating() {
         val currentSongCount = null
@@ -73,9 +70,9 @@ class DetailedViewScreen : AppCompatActivity() {
 
         fun navigateToMainScreen() {
             val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            startActivity(intent)
-            finish() // Close current activity
+            backBtn.setOnClickListener {
+                finish()
+            }
         }
     }
 }

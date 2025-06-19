@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToDetailedView() {
-        val intent = Intent(this, DetailedViewScreen::class.java)
+        (Intent(this, DetailedViewScreen::class.java))
 
         // Convert playlist array to string array using loops
         val playlistData = Array<String?>(MAX_SONGS) { null }
@@ -176,52 +176,4 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun calculateAndDisplayAverageRating() {
-        if (currentSongCount == 0) {
-            Toast.makeText(this, "Playlist is empty! Add some songs first.", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        // Calculate average rating using loops
-        var totalRating = 0.0
-        var songCount = 0
-
-        // Loop through array to sum all ratings
-        for (i in 0 until MAX_SONGS) {
-            if (playlist[i] != null) {
-                totalRating += playlist[i]!!.rating
-                songCount++
-            }
-        }
-
-        val averageRating = totalRating / songCount
-
-        // Build detailed rating information using loops
-        val ratingBuilder = StringBuilder()
-        ratingBuilder.append("Rating Analysis:\n\n")
-
-        var displayCount = 1
-        // Loop to show individual ratings
-        for (i in 0 until MAX_SONGS) {
-            if (playlist[i] != null) {
-                val song = playlist[i]!!
-                ratingBuilder.append("$displayCount. ${song.title}: ${song.rating}/5\n")
-                displayCount++
-            }
-        }
-
-        ratingBuilder.append("\n")
-        ratingBuilder.append("Total Songs: $songCount\n")
-        ratingBuilder.append("Sum of Ratings: $totalRating\n")
-        ratingBuilder.append("Average Rating: ${String.format("%.2f", averageRating)}/5")
-
-        // Display average rating in a dialog
-        AlertDialog.Builder(this)
-            .setTitle("Average Song Rating")
-            .setMessage(ratingBuilder.toString())
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
 }
